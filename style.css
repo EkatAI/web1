@@ -1,0 +1,257 @@
+/* style.css */
+
+/* правило для всех картинок, чтобы они никогда не вылезали за пределы */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* убирает лишний отступ снизу у картинок */
+}
+
+body {
+    font-family: Arial, sans-serif; 
+    background-color: #fdf8f2; 
+    margin: 0;
+    padding: 0;
+}
+
+/* Контейнер, чтобы сайт был по центру и не на весь экран */
+.container {
+    width: 900px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    min-height: 100vh; /* Чтобы фон был до низа */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Шапка сайта */
+header {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Меню */
+nav {
+    background-color: #34495e;
+    padding: 10px 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+/* Основной контент */
+.content {
+    padding: 20px;
+}
+
+/* Блок одной новости в списке */
+.news-item {
+    border-bottom: 1px solid #ddd; /* Линия между новостями */
+    padding: 15px 0;
+    display: flex; /* Чтобы картинка была слева, текст справа */
+    align-items: flex-start;
+}
+
+.news-item:last-child {
+    border-bottom: none;
+}
+
+/* Картинка в списке новостей */
+.news-item .news-img {
+    width: 200px;          /* Одинаковая ширина для всех */
+    height: 150px;         /* Одинаковая высота для всех */
+    object-fit: cover;     /* Растягивает картинку, заполняя весь блок */
+    margin-right: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex-shrink: 0;        /* Чтобы картинка не сжималась */
+}
+
+/* Заголовок новости */
+.news-title {
+    font-size: 18px;
+    color: #2c3e50;
+    margin: 0 0 10px 0;
+}
+
+.news-title a {
+    color: #2c3e50;
+    text-decoration: none;
+}
+
+.news-title a:hover {
+    text-decoration: underline;
+}
+
+.news-date {
+    font-size: 12px;
+    color: #7f8c8d;
+    margin-bottom: 5px;
+}
+
+.news-text {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Стили для страницы с полной новостью */
+.full-news-img {
+    max-width: 100%; 
+    width: 100%;
+    margin-bottom: 20px;
+    display: block; 
+}
+
+/* для полей ввода (текст) и текстового поля */
+.form-input,
+.form-textarea {
+    width: 100%;          /* на всю ширину контейнера */
+    max-width: 400px;     
+    padding: 8px;         /* внутренние отступы */
+    border: 1px solid #ccc;
+    border-radius: 4px;   /* немного скругленные углы */
+    box-sizing: border-box; /* чтобы padding не увеличивал общую ширину */
+    margin-top: 5px;      /* отступ сверху от текста */
+    font-family: Arial, sans-serif; 
+}
+
+.form-textarea {
+    resize: vertical; 
+}
+
+/* Стиль для кнопки */
+.form-button {
+    background-color: #34495e; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;      /* курсор рука*/
+    font-size: 16px;
+}
+
+/* Эффект при наведении на кнопку */
+.form-button:hover {
+    background-color: #2c3e50; /* Чуть темнее, как шапка */
+}
+
+footer {
+    background-color: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+/* Пагинация (просто вид) */
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+.pagination a {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    color: #333;
+    margin: 0 2px;
+    display: inline-block;
+}
+.pagination a.active {
+    background-color: #34495e;
+    color: white;
+}
+
+/*адаптивность*/
+
+/* Для планшетов и небольших ноутбуков (ширина экрана меньше 900px) */
+@media screen and (max-width: 900px) {
+    .container {
+        width: 95%; /* 95% от экрана */
+    }
+}
+
+/* Для телефонов (ширина экрана меньше 600px) */
+@media screen and (max-width: 600px) {
+    /* чтобы заголовок не занимал много места */
+    header h1 {
+        font-size: 24px; /* уменьшаем размер */
+    }
+    
+    /* меню - вертикальное */
+    nav {
+        display: flex;
+        flex-direction: column; /* элементы друг под другом */
+        align-items: center;
+        gap: 10px;
+    }
+    
+    nav a {
+        margin-right: 0; /* убираем правый отступ */
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 8px 0;
+    }
+    
+    /* новости в списке тоже вертикальные */
+    .news-item {
+        flex-direction: column; /* картинка сверху, текст снизу */
+    }
+    
+    /*картинки на телефоне*/
+    .news-item .news-img {
+        width: 100%;
+        height: 200px;        /* Чуть выше на телефоне */
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .content {
+        padding: 15px;
+    }
+    
+    /* Пагинация */
+    .pagination a {
+        padding: 8px 12px; /* Чуть больше кнопки для пальцев */
+    }
+    
+    /* Форма на телефоне */
+    .form-input,
+    .form-textarea {
+        max-width: 100%; /* Поля формы на всю ширину */
+    }
+    
+    /* Картинка в новости */
+    .full-news-img {
+        width: 100%; /* Всегда на всю ширину */
+    }
+}
+
+/* Для очень маленьких телефонов (ширина меньше 400px) */
+@media screen and (max-width: 400px) {
+    .content h2 {
+        font-size: 20px;
+    }
+    
+    .news-title {
+        font-size: 16px;
+    }
+    
+    .news-date {
+        font-size: 11px;
+    }
+    
+    /* КАРТИНКИ НА МАЛЕНЬКОМ ТЕЛЕФОНЕ */
+    .news-item .news-img {
+        height: 180px;
+    }
+}
